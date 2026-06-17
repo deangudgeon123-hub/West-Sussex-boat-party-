@@ -29,6 +29,10 @@ function updateTicketPreview() {
   ticketPreview.innerHTML = `<strong>${selectedTicket.label}</strong><span>${money(selectedTicket.price)} • ${selectedTicket.people} ${selectedTicket.people === 1 ? "person" : "people"}</span><em>${selectedTicket.transport}</em>`;
 }
 
+function encodeFormData(data) {
+  return new URLSearchParams(data).toString();
+}
+
 document.querySelectorAll("[data-ticket-jump]").forEach((button) => {
   button.addEventListener("click", () => {
     ticketType.value = button.dataset.ticketJump;
@@ -39,13 +43,11 @@ document.querySelectorAll("[data-ticket-jump]").forEach((button) => {
 ticketType.addEventListener("change", updateTicketPreview);
 updateTicketPreview();
 
-ticketForm.addEventListener("submit", (event) => {
+ticketForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const honeypot = document.getElementById("website").value.trim();
-  if (honeypot) {
-    return;
-  }
+  if (honeypot) return;
 
   const selectedTicket = TICKETS[ticketType.value];
   const name = document.getElementById("fullName").value.trim();
@@ -53,6 +55,7 @@ ticketForm.addEventListener("submit", (event) => {
   const phone = document.getElementById("phone").value.trim();
   const notes = document.getElementById("notes").value.trim();
   const reference = generateReference(name, selectedTicket);
+  const createdAt = new Date().toISOString();
 
   const order = {
     reference,
@@ -61,9 +64,32 @@ ticketForm.addEventListener("submit", (event) => {
     phone,
     notes,
     ticket: selectedTicket,
-    createdAt: new Date().toISOString()
+    createdAt
   };
 
+  document.getElementById("netlifyReference").value = reference;
+  document.getElementById("netlifyTicketLabel").value = selectedTicket.label;
+  document.getElementById("netlifyTicketPrice").value = money(selectedTicket.price);
+  document.getElementById("netlifyPeople").value = selectedTicket.people;
+  document.getElementById("netlifyCreatedAt").value = createdAt;
+
   sessionStorage.setItem("boatPartyOrder", JSON.stringify(order));
-  window.location.href = "confirmation.html";
+
+  const formData = new FormData(ticketForm);
+
+  try {
+    const response = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodeFormData(formData)
+    });
+
+    if (!response.ok) {
+      throw new Error("Form submission failed");
+    }
+
+    window.location.href = "confirmation.html";
+  } catch (error) {
+    alert("There was a problem saving your reservation. Please try again or message us directly.");
+  }
 });
