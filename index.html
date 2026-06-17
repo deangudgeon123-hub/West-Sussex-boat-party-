@@ -157,7 +157,13 @@
           </div>
         </div>
 
-        <form id="ticketForm" class="ticket-form">
+        <form id="ticketForm" class="ticket-form" name="boat-party-reservation" method="POST" data-netlify="true" netlify-honeypot="website">
+          <input type="hidden" name="form-name" value="boat-party-reservation" />
+          <input type="hidden" id="netlifyReference" name="reference" value="" />
+          <input type="hidden" id="netlifyTicketLabel" name="ticket_label" value="" />
+          <input type="hidden" id="netlifyTicketPrice" name="ticket_price" value="" />
+          <input type="hidden" id="netlifyPeople" name="people" value="" />
+          <input type="hidden" id="netlifyCreatedAt" name="created_at" value="" />
           <div class="honeypot-field" aria-hidden="true">
             <label>
               Leave this field empty
@@ -166,7 +172,7 @@
           </div>
           <label>
             Ticket type
-            <select id="ticketType" name="ticketType" required>
+            <select id="ticketType" name="ticket_type" required>
               <option value="general-self">General Admission (Self Travel) — £49.99</option>
               <option value="general-coach">General Admission (Coach Included) — £59.99</option>
               <option value="group3-self">Group of 3 (Self Travel) — £130.00</option>
@@ -176,7 +182,7 @@
           <div id="ticketPreview" class="ticket-preview"></div>
           <label>
             Full name
-            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+            <input type="text" id="fullName" name="full_name" placeholder="Your full name" required />
           </label>
           <label>
             Email address
