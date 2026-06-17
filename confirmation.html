@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Details | Bognor Boat Party</title>
+  <meta name="description" content="Your Bognor Boat Party payment reference and bank transfer details." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="brand">Bognor Boat Party</a>
+      <a href="index.html#tickets" class="nav-cta">Back To Tickets</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section confirmation-page">
+      <div class="confirmation-card">
+        <p class="eyebrow">Reservation created</p>
+        <h1 class="confirmation-title">Bank Transfer Details</h1>
+        <p class="muted">Your tickets are reserved but not confirmed until your bank transfer has been received and matched to this reference.</p>
+
+        <div class="reference-box" id="referenceOutput">Loading...</div>
+        <p class="muted">Use this reference exactly when making payment. Take a screenshot of this page.</p>
+
+        <div class="summary-grid">
+          <div><strong>Name</strong><span id="summaryName"></span></div>
+          <div><strong>Email</strong><span id="summaryEmail"></span></div>
+          <div><strong>Ticket Type</strong><span id="summaryTicket"></span></div>
+          <div><strong>Total to pay</strong><span id="summaryTotal"></span></div>
+        </div>
+
+        <div class="bank-box">
+          <h3>Send payment to</h3>
+          <p><strong>Account name:</strong> YOUR BUSINESS NAME</p>
+          <p><strong>Sort code:</strong> 00-00-00</p>
+          <p><strong>Account number:</strong> 00000000</p>
+          <p><strong>Payment reference:</strong> <span id="bankReference">Loading...</span></p>
+        </div>
+
+        <div class="notice">
+          <strong>Important:</strong> If the payment reference is missing or typed wrong, your ticket confirmation may be delayed.
+        </div>
+
+        <div class="confirmation-actions">
+          <button id="copyReference" class="button secondary">Copy Reference</button>
+          <a href="index.html#tickets" class="button primary">Book Another Ticket</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="confirmation.js"></script>
+</body>
+</html>
