@@ -158,6 +158,12 @@
         </div>
 
         <form id="ticketForm" class="ticket-form">
+          <div class="honeypot-field" aria-hidden="true">
+            <label>
+              Leave this field empty
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
           <label>
             Ticket type
             <select id="ticketType" name="ticketType" required>
@@ -205,9 +211,9 @@
 
         <div class="bank-box">
           <h3>Bank transfer details</h3>
-          <p><strong>Account name:</strong> YOUR BUSINESS NAME</p>
-          <p><strong>Sort code:</strong> 00-00-00</p>
-          <p><strong>Account number:</strong> 00000000</p>
+          <p><strong>Account name:</strong> West Sussex Boat Party</p>
+          <p><strong>Sort code:</strong> 08-71-99</p>
+          <p><strong>Account number:</strong> 14881567</p>
           <p><strong>Reference:</strong> <span id="bankReference">BP-XXXXXX</span></p>
         </div>
 
