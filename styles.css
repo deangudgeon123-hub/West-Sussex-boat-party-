@@ -227,9 +227,7 @@ dd { margin: 5px 0 0; font-size: 1.3rem; font-weight: 900; }
   box-shadow: var(--glow), 0 24px 80px rgba(0,0,0,0.45);
 }
 
-.coach-ticket {
-  opacity: 0.9;
-}
+.coach-ticket { opacity: 0.9; }
 
 .ticket-badge {
   align-self: flex-start;
@@ -243,15 +241,9 @@ dd { margin: 5px 0 0; font-size: 1.3rem; font-weight: 900; }
   letter-spacing: 0.08em;
 }
 
-.muted-badge {
-  background: rgba(255,255,255,0.12);
-  color: var(--muted);
-}
+.muted-badge { background: rgba(255,255,255,0.12); color: var(--muted); }
 
-.ticket-card h3 {
-  margin: 4px 0 0;
-  font-size: 1.3rem;
-}
+.ticket-card h3 { margin: 4px 0 0; font-size: 1.3rem; }
 
 .ticket-subtitle {
   color: var(--pink-2);
@@ -270,11 +262,7 @@ dd { margin: 5px 0 0; font-size: 1.3rem; font-weight: 900; }
 }
 
 .per-person,
-.transport-note {
-  color: var(--pink-2);
-  font-weight: 900;
-  margin-bottom: 0;
-}
+.transport-note { color: var(--pink-2); font-weight: 900; margin-bottom: 0; }
 
 .ticket-card ul {
   padding-left: 20px;
@@ -371,7 +359,15 @@ input:focus, select:focus, textarea:focus { border-color: var(--pink); box-shado
 .full-width { width: 100%; border: 0; }
 .hidden { display: none; }
 
-.confirmation-card { border-radius: 34px; padding: 30px; }
+.confirmation-card { border-radius: 34px; padding: 30px; overflow: hidden; }
+.confirmation-title {
+  max-width: 100%;
+  font-size: clamp(2.7rem, 9.5vw, 6.4rem);
+  line-height: 0.86;
+  letter-spacing: -0.09em;
+  overflow-wrap: normal;
+  word-break: normal;
+}
 .reference-box {
   font-size: clamp(2.2rem, 7vw, 6rem);
   line-height: 1;
@@ -429,6 +425,18 @@ input:focus, select:focus, textarea:focus { border-color: var(--pink); box-shado
   .nav-cta { padding: 11px 14px; font-size: 0.78rem; }
   .hero { min-height: auto; padding: 54px 0; }
   h1 { font-size: clamp(3.7rem, 22vw, 6rem); }
+  .confirmation-card { padding: 22px; }
+  .confirmation-title {
+    font-size: clamp(2.4rem, 18vw, 4.55rem);
+    line-height: 0.84;
+    letter-spacing: -0.1em;
+    text-shadow: 5px 5px 0 rgba(255, 10, 120, 0.92);
+  }
+  .reference-box {
+    font-size: clamp(1.35rem, 8vw, 2.8rem);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
   .ticket-cards, .steps, .summary-grid { grid-template-columns: 1fr; }
   .event-card::before { position: static; transform: none; display: inline-block; margin-bottom: 14px; }
 }
