@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>West Sussex Boat Party | Tickets</title>
+  <meta name="description" content="Reserve tickets for the West Sussex Boat Party and pay by bank transfer using your unique reference." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#top" class="brand">West Sussex Boat Party</a>
+      <a href="#tickets" class="nav-cta">Reserve Tickets</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Limited spaces • Bank transfer ticket reservations</p>
+        <h1>West Sussex Boat Party</h1>
+        <p class="hero-copy">Secure your place for a summer boat party on the South Coast. Reserve your tickets online, pay by bank transfer using your unique reference, then receive your tickets by email once payment is matched.</p>
+        <div class="hero-actions">
+          <a href="#tickets" class="button primary">Reserve Tickets</a>
+          <a href="#how-it-works" class="button secondary">How It Works</a>
+        </div>
+      </div>
+      <aside class="event-card">
+        <h2>Event Details</h2>
+        <dl>
+          <div><dt>Date</dt><dd>To be confirmed</dd></div>
+          <div><dt>Location</dt><dd>West Sussex / South Coast</dd></div>
+          <div><dt>Ticket Price</dt><dd>£45 per person</dd></div>
+          <div><dt>Status</dt><dd>Reservations open</dd></div>
+        </dl>
+        <p class="small-note">Edit these details in <strong>index.html</strong> once the date, boat, and final ticket price are locked in.</p>
+      </aside>
+    </section>
+
+    <section id="how-it-works" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Simple manual payment system</p>
+        <h2>How ticket reservations work</h2>
+      </div>
+      <div class="steps">
+        <article>
+          <span>1</span>
+          <h3>Reserve online</h3>
+          <p>Fill out your name, email, phone number and ticket quantity.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Get your reference</h3>
+          <p>The site generates a unique payment reference for your order.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Pay by bank transfer</h3>
+          <p>Use the bank details shown and include the reference exactly.</p>
+        </article>
+        <article>
+          <span>4</span>
+          <h3>Receive your ticket</h3>
+          <p>Once payment is matched, your ticket will be emailed to you manually.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tickets" class="section ticket-section">
+      <div class="ticket-grid">
+        <div>
+          <p class="eyebrow">Reserve your space</p>
+          <h2>Ticket reservation form</h2>
+          <p class="muted">This reserves your tickets, but they are not confirmed until payment has been received and matched with your unique reference.</p>
+          <div class="notice">
+            <strong>Important:</strong> Please use your exact reference when paying. If the reference is missing or changed, your confirmation may be delayed.
+          </div>
+        </div>
+
+        <form id="ticketForm" class="ticket-form">
+          <label>
+            Full name
+            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+          </label>
+          <label>
+            Email address
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Phone number
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required />
+          </label>
+          <label>
+            Number of tickets
+            <select id="ticketQty" name="ticketQty" required>
+              <option value="1">1 ticket</option>
+              <option value="2">2 tickets</option>
+              <option value="3">3 tickets</option>
+              <option value="4">4 tickets</option>
+              <option value="5">5 tickets</option>
+              <option value="6">6 tickets</option>
+            </select>
+          </label>
+          <label>
+            Notes optional
+            <textarea id="notes" name="notes" placeholder="Anything we need to know?"></textarea>
+          </label>
+          <button type="submit" class="button primary full-width">Generate Payment Reference</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="confirmation" class="section confirmation hidden" aria-live="polite">
+      <div class="confirmation-card">
+        <p class="eyebrow">Reservation created</p>
+        <h2>Your payment reference</h2>
+        <div class="reference-box" id="referenceOutput">BP-XXXXXX</div>
+        <p class="muted">Take a screenshot of this page before paying.</p>
+
+        <div class="summary-grid">
+          <div><strong>Name</strong><span id="summaryName"></span></div>
+          <div><strong>Email</strong><span id="summaryEmail"></span></div>
+          <div><strong>Tickets</strong><span id="summaryTickets"></span></div>
+          <div><strong>Total to pay</strong><span id="summaryTotal"></span></div>
+        </div>
+
+        <div class="bank-box">
+          <h3>Bank transfer details</h3>
+          <p><strong>Account name:</strong> YOUR BUSINESS NAME</p>
+          <p><strong>Sort code:</strong> 00-00-00</p>
+          <p><strong>Account number:</strong> 00000000</p>
+          <p><strong>Reference:</strong> <span id="bankReference">BP-XXXXXX</span></p>
+        </div>
+
+        <div class="notice">
+          Your tickets are reserved but not confirmed until payment is received. Once your payment has been matched, your tickets will be emailed to you.
+        </div>
+
+        <div class="confirmation-actions">
+          <button id="copyReference" class="button secondary">Copy Reference</button>
+          <a id="emailOrder" class="button primary" href="#">Email Reservation Details</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>West Sussex Boat Party • Manual bank-transfer ticket reservations</p>
+    <p class="small-note">Tickets are only confirmed after payment has been received and matched.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
