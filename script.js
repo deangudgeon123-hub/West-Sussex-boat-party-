@@ -42,6 +42,11 @@ updateTicketPreview();
 ticketForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  const honeypot = document.getElementById("website").value.trim();
+  if (honeypot) {
+    return;
+  }
+
   const selectedTicket = TICKETS[ticketType.value];
   const name = document.getElementById("fullName").value.trim();
   const email = document.getElementById("email").value.trim();
