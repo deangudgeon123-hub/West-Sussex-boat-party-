@@ -2,7 +2,7 @@ const EVENT_EMAIL = "YOUR-EMAIL@example.com";
 
 const TICKETS = {
   "general-self": { label: "General Admission (Self Travel)", shortCode: "GA", price: 49.99, people: 1, transport: "Transport not included" },
-  "general-coach": { label: "General Admission (Coach Included)", shortCode: "COACH", price: 59.99, people: 1, transport: "Return coach travel from Bognor Regis included" },
+  "general-coach": { label: "General Admission (Coach Included)", shortCode: "GC", price: 59.99, people: 1, transport: "Return coach travel from Bognor Regis included" },
   "group3-self": { label: "Group of 3 (Self Travel)", shortCode: "G3", price: 130, people: 3, transport: "Transport not included" },
   "group3-coach": { label: "Group of 3 (Coach Included)", shortCode: "G3C", price: 165, people: 3, transport: "Return coach travel from Bognor Regis included" }
 };
@@ -12,12 +12,16 @@ const ticketType = document.getElementById("ticketType");
 const ticketPreview = document.getElementById("ticketPreview");
 
 function generateReference(name, ticket) {
-  const cleanName = name.replace(/[^a-zA-Z]/g, "").slice(0, 3).toUpperCase().padEnd(3, "X");
-  const timeCode = Date.now().toString(36).toUpperCase();
-  const randomBytes = new Uint32Array(2);
-  crypto.getRandomValues(randomBytes);
-  const randomCode = Array.from(randomBytes).map((number) => number.toString(36).toUpperCase()).join("").slice(0, 10);
-  return `BP-${ticket.shortCode}-${cleanName}-${timeCode}-${randomCode}`;
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const bytes = new Uint8Array(6);
+  crypto.getRandomValues(bytes);
+
+  let randomCode = "";
+  bytes.forEach(byte => {
+    randomCode += chars[byte % chars.length];
+  });
+
+  return `BP-${ticket.shortCode}-${randomCode}`;
 }
 
 function money(value) {
