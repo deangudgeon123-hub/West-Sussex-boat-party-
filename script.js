@@ -1,10 +1,10 @@
 const EVENT_EMAIL = "YOUR-EMAIL@example.com";
 
 const TICKETS = {
-  "general-self": { label: "General Admission (Self Travel)", shortCode: "GA", price: 49.99, people: 1, transport: "Transport not included" },
-  "general-coach": { label: "General Admission (Coach Included)", shortCode: "GC", price: 59.99, people: 1, transport: "Return coach travel from Bognor Regis included" },
-  "group3-self": { label: "Group of 3 (Self Travel)", shortCode: "G3", price: 130, people: 3, transport: "Transport not included" },
-  "group3-coach": { label: "Group of 3 (Coach Included)", shortCode: "G3C", price: 165, people: 3, transport: "Return coach travel from Bognor Regis included" }
+  "general-self": { label: "General Admission (Self Travel)", shortCode: "GA", price: 44.99, people: 1, transport: "Transport not included" },
+  "general-coach": { label: "General Admission (Coach Included)", shortCode: "GC", price: 53.99, people: 1, transport: "Return coach travel from Bognor Regis included" },
+  "group3-self": { label: "Group of 3 (Self Travel)", shortCode: "G3", price: 117.00, people: 3, transport: "Transport not included" },
+  "group3-coach": { label: "Group of 3 (Coach Included)", shortCode: "G3C", price: 148.50, people: 3, transport: "Return coach travel from Bognor Regis included" }
 };
 
 const ticketForm = document.getElementById("ticketForm");
