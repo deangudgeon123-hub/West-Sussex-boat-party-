@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>West Sussex Boat Party | Tickets</title>
-  <meta name="description" content="Reserve tickets for the West Sussex Boat Party and pay by bank transfer using your unique reference." />
+  <meta name="description" content="Book tickets for the West Sussex Boat Party by card or save 10% when paying by bank transfer." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -25,8 +25,12 @@
         </h1>
         <p class="hero-strip">12PM-4PM • Daytime Cruise • Live DJ • Fully Licensed Bar</p>
         <p class="hero-copy">A 4-hour daytime party cruise around Southampton Water and The Solent with live DJs, a fully licensed onboard bar, and return coach options from Bognor Regis.</p>
+        <div class="notice" style="margin-top: 18px;">
+          <strong>10% OFF BANK TRANSFER PAYMENTS</strong><br>
+          Use the discounted bank transfer form below to save 10% on any ticket.
+        </div>
         <div class="hero-actions">
-          <a href="#tickets" class="button primary">Reserve Tickets</a>
+          <a href="#tickets" class="button primary">Get 10% Off by Bank Transfer</a>
         </div>
       </div>
       <aside class="event-card">
@@ -46,7 +50,7 @@
       <div class="section-heading">
         <p class="eyebrow">Choose your ticket</p>
         <h2>Ticket options</h2>
-        <p class="muted">Self-travel tickets give you the best value. Coach tickets include return travel from Bognor Regis.</p>
+        <p class="muted">Pay securely by card below, or use the bank transfer form further down to receive 10% off.</p>
       </div>
 
       <div class="ticket-cards">
@@ -125,11 +129,11 @@
     <section id="tickets" class="section ticket-section">
       <div class="ticket-grid">
         <div>
-          <p class="eyebrow">Reserve your space</p>
-          <h2>Ticket reservation form</h2>
-          <p class="muted">This reserves your tickets, but they are not confirmed until payment has been received and matched with your unique reference.</p>
+          <p class="eyebrow">10% off bank transfer payments</p>
+          <h2>Pay by bank transfer and save 10%</h2>
+          <p class="muted">Select your ticket below to receive the discounted bank transfer price. Your booking is confirmed once payment has been received and matched with your unique reference.</p>
           <div class="notice">
-            <strong>Important:</strong> Please use your exact reference when paying. If the reference is missing or changed, your confirmation may be delayed.
+            <strong>Discount applied:</strong> Every price shown in this form is 10% lower than the standard card price. Please use your exact payment reference when transferring the money.
           </div>
         </div>
 
@@ -147,12 +151,12 @@
             </label>
           </div>
           <label>
-            Ticket type
+            Discounted bank transfer ticket
             <select id="ticketType" name="ticket_type" required>
-              <option value="general-self">General Admission (Self Travel) — £49.99</option>
-              <option value="general-coach">General Admission (Coach Included) — £59.99</option>
-              <option value="group3-self">Group of 3 (Self Travel) — £130.00</option>
-              <option value="group3-coach">Group of 3 (Coach Included) — £165.00</option>
+              <option value="general-self">General Admission (Self Travel) — £44.99 (was £49.99)</option>
+              <option value="general-coach">General Admission (Coach Included) — £53.99 (was £59.99)</option>
+              <option value="group3-self">Group of 3 (Self Travel) — £117.00 (was £130.00)</option>
+              <option value="group3-coach">Group of 3 (Coach Included) — £148.50 (was £165.00)</option>
             </select>
           </label>
           <div id="ticketPreview" class="ticket-preview"></div>
@@ -172,7 +176,7 @@
             Notes optional
             <textarea id="notes" name="notes" placeholder="Anything we need to know?"></textarea>
           </label>
-          <button type="submit" class="button primary full-width">Generate Payment Reference</button>
+          <button type="submit" class="button primary full-width">Generate Discounted Payment Reference</button>
         </form>
       </div>
     </section>
@@ -200,7 +204,7 @@
         </div>
 
         <div class="notice">
-          Your tickets are reserved but not confirmed until payment is received. Once your payment has been matched, your tickets will be emailed to you.
+          Your discounted tickets are reserved but not confirmed until payment is received. Once your payment has been matched, your tickets will be emailed to you.
         </div>
 
         <div class="confirmation-actions">
@@ -212,13 +216,13 @@
   </main>
 
   <footer class="footer">
-    <p>West Sussex Boat Party • Manual bank-transfer ticket reservations</p>
+    <p>West Sussex Boat Party • Secure card payments or 10% off by bank transfer</p>
     <div class="footer-contact" aria-label="Contact West Sussex Boat Party">
       <a href="https://wa.me/447934889138" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
       <a href="https://www.instagram.com/westsussexboatparty?igsh=dW9xZW9ucXMzbDFx&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
       <a href="mailto:westsussexboatparty@gmail.com">✉️ Email</a>
     </div>
-    <p class="small-note">Tickets are only confirmed after payment has been received and matched.</p>
+    <p class="small-note">Bank-transfer tickets are only confirmed after payment has been received and matched.</p>
   </footer>
 
   <script src="script.js"></script>
