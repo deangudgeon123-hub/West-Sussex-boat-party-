@@ -1,10 +1,10 @@
 const EVENT_EMAIL = "YOUR-EMAIL@example.com";
 
 const TICKETS = {
-  "general-self": { label: "General Admission (Self Travel)", shortCode: "GA", price: 49.99, people: 1, transport: "Transport not included" },
-  "general-coach": { label: "General Admission (Coach Included)", shortCode: "GC", price: 59.99, people: 1, transport: "Return coach travel from Bognor Regis included" },
-  "group3-self": { label: "Group of 3 (Self Travel)", shortCode: "G3", price: 130, people: 3, transport: "Transport not included" },
-  "group3-coach": { label: "Group of 3 (Coach Included)", shortCode: "G3C", price: 165, people: 3, transport: "Return coach travel from Bognor Regis included" }
+  "general-self": { label: "General Admission (Self Travel)", shortCode: "GA", originalPrice: 49.99, price: 44.99, people: 1, transport: "Transport not included" },
+  "general-coach": { label: "General Admission (Coach Included)", shortCode: "GC", originalPrice: 59.99, price: 53.99, people: 1, transport: "Return coach travel from Bognor Regis included" },
+  "group3-self": { label: "Group of 3 (Self Travel)", shortCode: "G3", originalPrice: 130, price: 117, people: 3, transport: "Transport not included" },
+  "group3-coach": { label: "Group of 3 (Coach Included)", shortCode: "G3C", originalPrice: 165, price: 148.5, people: 3, transport: "Return coach travel from Bognor Regis included" }
 };
 
 const ticketForm = document.getElementById("ticketForm");
@@ -30,7 +30,7 @@ function money(value) {
 
 function updateTicketPreview() {
   const selectedTicket = TICKETS[ticketType.value];
-  ticketPreview.innerHTML = `<strong>${selectedTicket.label}</strong><span>${money(selectedTicket.price)} • ${selectedTicket.people} ${selectedTicket.people === 1 ? "person" : "people"}</span><em>${selectedTicket.transport}</em>`;
+  ticketPreview.innerHTML = `<strong>${selectedTicket.label}</strong><span>Bank transfer price: ${money(selectedTicket.price)} <s>${money(selectedTicket.originalPrice)}</s> • ${selectedTicket.people} ${selectedTicket.people === 1 ? "person" : "people"}</span><em>10% discount applied • ${selectedTicket.transport}</em>`;
 }
 
 function encodeFormData(data) {
@@ -72,7 +72,7 @@ ticketForm.addEventListener("submit", async (event) => {
   };
 
   document.getElementById("netlifyReference").value = reference;
-  document.getElementById("netlifyTicketLabel").value = selectedTicket.label;
+  document.getElementById("netlifyTicketLabel").value = `${selectedTicket.label} — 10% off bank transfer`;
   document.getElementById("netlifyTicketPrice").value = money(selectedTicket.price);
   document.getElementById("netlifyPeople").value = selectedTicket.people;
   document.getElementById("netlifyCreatedAt").value = createdAt;
